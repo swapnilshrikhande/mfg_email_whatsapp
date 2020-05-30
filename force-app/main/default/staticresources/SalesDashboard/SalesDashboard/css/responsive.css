@@ -1,0 +1,223 @@
+@media only screen and (max-width:1280px) {
+    span.activity_name {
+        font-size: 1rem;
+    }
+
+    span.actions_div {
+        transform: scale(.8);
+    }
+}
+
+@media only screen and (max-width:1100px) {
+    span.activity_name {
+        font-size: 1.125rem;
+    }
+
+    .list-item > span:nth-child(1) {
+        display: flex;
+        align-items: center;
+    }
+
+    span.label {
+        visibility: visible;
+        display: block;
+    }
+
+    span.activity_details {
+        border: 0.75px solid rgba(143, 156, 177, 0.35);
+        border-right: 0;
+        border-left: 0;
+        padding: 15px 0;
+    }
+
+    span.actions_div > span {
+        margin: 0 2rem 0 0;
+    }
+
+    .list-item {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .list-item span > img {
+        margin: 10px;
+        max-width: 25px;
+    }
+
+    .list-item span.activity_time > img {
+        max-width: 15px;
+        margin-right: 4px;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width:991px) {
+    span.grettigs {
+        font-size: 1.5rem;
+    }
+
+    .points_div,
+    .badge_div span:nth-child(1) p,
+    .div_3 > p,
+    .div_3 .progress .progress-bar {
+        font-size: .9125rem;
+    }
+
+    .badge_div span img {
+        max-width: 3.5rem;
+    }
+
+    .points_div span:nth-child(4) {
+        font-size: .7125rem;
+    }
+
+    .card.lead_source,
+    .card.current_sales {
+        width: 100%;
+    }
+
+    .card.current_sales {
+        margin: 1em;
+    }
+
+    .padding-right {
+        padding-right: 15px !important;
+    }
+
+}
+
+@media only screen and (max-width:767px) {
+    .performer_div span > img {
+        max-width: 50px;
+    }
+
+    p.p_name {
+        font-size: 1rem;
+    }
+
+    .performer_div span > img {
+        max-width: 40px;
+    }
+
+    .card_style.yellow .card-details span.numbers span:nth-child(1) {
+        font-size: 2rem;
+    }
+
+    .card_style.yellow span.card-subtitle {
+        font-size: .825rem;
+    }
+
+    .card.lead_source,
+    .card.current_sales {
+        margin: 1em 0;
+    }
+
+    /*Remove this CSS after implementation*/
+    img.img-fluid.dummy_image {
+        margin: 1em 0;
+        padding-right: 0;
+    }
+
+    /*----*/
+}
+
+@media only screen and (min-width:600px) and (max-width:767px) {
+
+    .div_1,
+    .div_2,
+    .div_3,
+    .div_4 {
+        max-width: 50% !important;
+        margin-bottom: 1rem;
+    }
+
+    .div_2,
+    .div_4 {
+        border-right: 0 !important;
+    }
+
+    .list-item {
+        max-width: 46%;
+        margin: .5em;
+    }
+
+    .card-body.activitylist {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width:599px) {
+    button.nav_btn {
+        top: 1.25rem;
+    }
+
+    .div_1,
+    .div_2,
+    .div_3,
+    .div_4 {
+        min-height: 7rem !important;
+        padding-top: 1rem !important;
+        border-right: 0 !important;
+        border-bottom: .75px solid rgba(22, 50, 92, 0.3);
+    }
+
+    .div_4 {
+        border: 0;
+    }
+
+    .top_head {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .top_head span input[type=search] {
+        width: 90%;
+    }
+
+    .top_head > img {
+        max-width: 45px;
+    }
+
+    .options {
+        width: 100%;
+        justify-content: center;
+        padding-top: 10px;
+        margin-top: 15px;
+        border-top: .75px solid rgba(22, 50, 92, 0.3);
+    }
+
+    span#userName {
+        display: none;
+    }
+
+    .dropdown-menu {
+        min-width: 9rem !important;
+        padding: 0.5rem !important;
+    }
+}
+
+@media only screen and (max-width:425px) {
+    span.leads {
+        font-size: 1.75rem;
+    }
+
+    .card {
+        width: 220px;
+        margin: .5em;
+    }
+
+    #right-button,
+    #left-button {
+        width: 20px;
+    }
+
+    .top_head span input[type=search] {
+        width: 100%;
+    }
+
+    .top_head > span:nth-child(2) {
+        width: 65%;
+    }
+}

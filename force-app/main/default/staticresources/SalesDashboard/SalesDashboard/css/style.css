@@ -1,0 +1,1198 @@
+@font-face {
+    font-family: nunito;
+    src: url('../font/NunitoSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: nunito_L;
+    src: url('../font/NunitoSans-Light.ttf');
+}
+
+@font-face {
+    font-family: nunito_EL;
+    src: url('../font/NunitoSans-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: nunito_I;
+    src: url('../font/NunitoSans-Italic.ttf');
+}
+
+@font-face {
+    font-family: nunito_LI;
+    src: url('../font/Nunito-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: nunito_SB;
+    src: url('../font/NunitoSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: nunito_SBI;
+    src: url('../font/Nunito-SemiBoldItalic.ttf');
+}
+
+@font-face {
+    font-family: nunito_B;
+    src: url('../font/NunitoSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: nunito_Black;
+    src: url('../font/NunitoSans-Black.ttf');
+}
+
+* {
+    font-family: nunito !important;
+}
+
+.card-body.activitylist::-webkit-scrollbar,
+.card.current_sales::-webkit-scrollbar,
+.card.current_sales .card-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card-body.activitylist::-webkit-scrollbar-track,
+.card.current_sales::-webkit-scrollbar-track,
+.card.current_sales .card-body::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+}
+
+.card-body.activitylist::-webkit-scrollbar-thumb,
+.card.current_sales::-webkit-scrollbar-thumb,
+.card.current_sales .card-body::-webkit-scrollbar-thumb {
+    border-radius: 5rem;
+    background-color: rgba(173, 183, 198, .7);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: #16325C;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 4px 0 12px 0 rgba(22, 50, 92, .3);
+}
+
+#nav_menu_bg {
+    display: none;
+    background-color: rgba(25, 25, 25, .35);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+div#mySidenav::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 3rem;
+    background: #061D3F;
+    z-index: -1;
+}
+
+.sidenav a {
+    padding: 16px 8px 9px 16px;
+    ;
+    text-decoration: none !important;
+    font-size: 1.125rem;
+    font-family: nunito_L !important;
+    font-weight: 100;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.sidenav a:hover {
+    color: #2196F3;
+}
+
+.sidenav .closebtn {
+    padding: 0;
+    font-size: 1.75rem;
+}
+
+button.nav_btn {
+    position: absolute;
+    top: 2rem;
+    border: 0;
+    background: none;
+}
+
+img.img-fliud.nav_icons {
+    max-width: 20px;
+    margin-right: 1.35rem;
+}
+
+.nav_bar_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em 1em;
+    background: #061D3F;
+    border-bottom: .5px solid #dadada;
+}
+
+.nav_bar_title > span {
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: nunito_L !important;
+}
+
+button.nav_btn:hover {
+    cursor: pointer;
+}
+
+button.nav_btn:focus {
+    outline: 0;
+}
+
+.top_head {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 1rem 0;
+}
+
+.top_head > img.sf_logo {
+    margin-left: 3rem;
+}
+
+.top_head > span:nth-child(2) {
+    position: relative;
+    display: inline;
+    left: 10px;
+}
+
+.top_head span input[type=search] {
+    border: 0;
+    width: 100%;
+    min-height: 35px;
+    color: rgba(22, 50, 92, .3);
+    padding: 0 1.5rem;
+    font-weight: 300;
+    font-family: nunito !important;
+    transition: all ease-in .3s;
+}
+
+.top_head span:nth-child(2) > img {
+    max-width: 15px;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+.top_head span input[type=search]:focus {
+    outline: 0;
+    border: 0.75px solid rgba(22, 50, 92, .35) !important;
+    border-radius: 5rem;
+    transition: all ease-in .3s;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.options .dropdown {
+    margin: 0 1rem;
+}
+
+.options .dropdown a {
+    background: none;
+    background-color: #fff !important;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    color: rgba(22, 50, 92, .35) !important;
+}
+
+.options .dropdown a:focus {
+    box-shadow: none !important;
+    border: 0;
+}
+
+.options span a.header_options {
+    display: inline-block;
+    width: 20px;
+    margin: 0 1rem;
+}
+
+.options > span:last-child {
+    display: inline-block;
+    border-left: 1px solid rgba(22, 50, 90, .3);
+}
+
+.dropdown-menu {
+    width: 100%;
+    left: 0 !important;
+    padding: 0.5rem 1rem !important;
+    line-height: 2rem;
+    border: .5px solid #ddd !important;
+}
+
+.bottom_head {
+    background: #F7F9FB;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(22, 50, 92, .7);
+}
+
+.dashboard-title {
+    padding: 1rem .5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-title > img {
+    max-width: 28px;
+    margin-right: .5rem;
+}
+
+.dashboard-title > span {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: nunito_SB !important;
+    color: rgba(22, 50, 92, .75);
+}
+
+.bottom_head .row div.div_1,
+.bottom_head .row div.div_2 {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-right: .75px solid rgba(22, 50, 92, 0.3);
+}
+
+.bottom_head .row div.div_3 {
+    border-right: .75px solid rgba(22, 50, 92, 0.3);
+}
+
+.bottom_head .row div.div_4 {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+a.dropdown-item {
+    font-weight: 300 !important;
+}
+
+span.grettigs {
+    font-size: 2rem;
+    font-family: nunito_EL !important;
+    font-weight: 100;
+    color: rgba(22, 50, 92, .7);
+}
+
+span.grettigs span#name {
+    font-family: nunito_B !important;
+    margin: .5rem 0;
+}
+
+.points_div {
+    font-weight: 300;
+    color: rgba(22, 50, 92, .7);
+    font-size: 1.125rem;
+}
+
+.points_div span {
+    margin-right: .25rem;
+}
+
+.points_div span:nth-child(2) {
+    font-family: nunito_B !important;
+}
+
+.points_div span:nth-child(4) {
+    font-size: .9125rem;
+}
+
+.badge_div {
+    display: flex;
+    align-items: center;
+}
+
+.badge_div span:nth-child(1) p {
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: rgba(22, 50, 92, .7);
+    width: 80%;
+    line-height: 1.125rem;
+}
+
+p#badge {
+    letter-spacing: 2px;
+    font-family: nunito_B !important;
+}
+
+.badge_div span img {
+    max-width: 4rem;
+}
+
+.div_3 .progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 1rem;
+    overflow: visible;
+    font-size: .75rem;
+    background-color: #DBE6F4;
+    border-radius: .25rem;
+    position: relative;
+    border-radius: 5rem;
+}
+
+.div_3 .progress .progress-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: left;
+    background-color: #2F80ED;
+    transition: width .6s ease;
+    min-height: 26px;
+    position: absolute;
+    padding: 0 .75rem;
+    font-size: 1.125rem;
+    top: -6px;
+    font-weight: 300;
+    left: 0;
+    border-radius: 5rem;
+    box-shadow: 4px 0 12px 0 rgba(22, 50, 92, .3);
+}
+
+.progress_lables {
+    display: flex;
+    justify-content: space-between;
+    font-size: .85rem;
+    margin-top: .35rem;
+    padding: 0 1rem;
+    font-family: nunito_SB !important;
+    color: rgba(22, 50, 92, .3);
+}
+
+.div_3 > p {
+    font-size: 1.125rem;
+    font-family: nunito_SB !important;
+    color: rgba(22, 50, 92, .7);
+}
+
+a.btn.btn-style {
+    background: #16325C;
+    border-radius: 5rem;
+    color: #fff;
+    padding: 0.35rem 1.25rem;
+    font-weight: 300;
+    box-shadow: 0 4px 10px 0 rgba(22, 50, 92, .35);
+}
+
+span.button_div {
+    position: relative;
+}
+
+span.notify {
+    height: 16px;
+    width: 16px;
+    background: #FFDA6A;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid #F7F9FB;
+    position: absolute;
+    top: -5px;
+    right: 0;
+}
+
+.container-fluid.padding {
+    padding: 0 .5em;
+}
+
+.bg_blue {
+    background-color: #F2F5FA;
+}
+
+#elem {
+    display: flex;
+    align-items: center;
+}
+
+#outer {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 1rem 0;
+    margin-top: 0;
+    display: inline-block;
+}
+
+#left-button {
+    width: 20px;
+    text-align: right;
+}
+
+#right-button {
+    width: 20px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: red;
+}
+
+#inner:first-child {
+    margin-left: 0;
+    min-height: 250px;
+    padding-top: .65rem;
+}
+
+.hide {
+    display: none;
+}
+
+.card {
+    width: 260px;
+    display: inline-block !important;
+    border: 0 !important;
+    max-height: 215px;
+    margin: 1em;
+    border-radius: 0.95rem !important;
+    box-shadow: 0 4px 25px 0 rgba(22, 50, 92, .10);
+    transition: all ease-in .3s;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 4px 25px 0 rgba(22, 50, 92, .22);
+    transition: all ease-in .3s;
+}
+
+.card .card-body {
+    min-height: 130px;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    border-bottom: .25px solid rgba(22, 50, 92, .3);
+    padding: 10px 0;
+    margin: 0 20px;
+    margin-bottom: 0 !important;
+    font-size: 0.912rem;
+    color: rgba(22, 50, 92, .75);
+    font-family: nunito_SB !important;
+}
+
+.card-title span {
+    font-family: nunito_SB !important;
+    padding-left: 10px;
+}
+
+span.leads {
+    font-size: 2.25rem;
+    background-color: #FEF3D3;
+    color: rgba(22, 50, 92, .75);
+    font-family: nunito_B !important;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+span.card-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span.leads {
+    font-size: 2.25rem;
+    background-color: #FEF3D3;
+    color: rgba(22, 50, 92, .75);
+    font-family: nunito_B !important;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+span.leads-details p:nth-child(1) {
+    font-size: 1.5rem;
+    color: #FFDA6A;
+    font-family: nunito_B !important;
+    margin: 0;
+}
+
+p.card-date {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgba(22, 50, 92, .75);
+    font-family: nunito_L !important;
+}
+
+.card-footer {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.card-footer button {
+    width: 100%;
+    border: 0;
+    background: #F1F4F9;
+    color: #506585;
+    transition: all ease-in .3s;
+}
+
+.card-footer button:focus {
+    outline: 0;
+}
+
+.card-footer button:hover {
+    cursor: pointer;
+    transition: all ease-in .3s;
+    color: white;
+    background: #16325C;
+}
+
+#left-button a,
+#right-button a {
+    display: block;
+    cursor: pointer;
+}
+
+.card_style .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.card_style .card-details {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-title > img {
+    max-width: 30px;
+}
+
+.card_style .card-details span.numbers span:nth-child(1) {
+    font-size: 2.25rem;
+    font-family: nunito_B !important;
+}
+
+.card_style.green .card-details span.numbers span:nth-child(1) {
+    color: #13DBB7;
+}
+
+.card_style .card-details span.numbers span:nth-child(2) {
+    font-size: 1.5rem;
+    color: rgba(22, 50, 92, .35);
+    font-family: nunito_B !important;
+}
+
+span.card-subtitle {
+    font-family: nunito_B !important;
+    font-size: 0.875rem;
+}
+
+.card_style.green span.card-subtitle {
+    color: #13DBB7;
+}
+
+.card_style.blue .card-details span.numbers span:nth-child(1) {
+    color: #2F80ED;
+}
+
+.card_style.blue span.card-subtitle {
+    color: #2F80ED;
+}
+
+.card_style.blue .value-bar {
+    border: 0.75em solid #2F80ED;
+}
+
+.card_style.blue .progress-circle.over50 .first50-bar {
+    background-color: #2F80ED;
+}
+
+.card_style.cyan .card-details span.numbers span:nth-child(1) {
+    color: #009DDC;
+}
+
+.card_style.cyan span.card-subtitle {
+    color: #009DDC;
+}
+
+span.diff_perentage {
+    position: absolute;
+    right: -24px;
+    top: 10px;
+    color: #EB5757;
+    font-size: 0.75rem;
+}
+
+span.diff_perentage > img {
+    max-width: 6px;
+}
+
+span.percent {
+    margin-left: 4px;
+    font-family: nunito_B !important;
+}
+
+.sale_div {
+    width: 45%;
+}
+
+.sale {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: end;
+    font-size: 0.75rem;
+    margin-bottom: 0.625rem;
+    font-family: nunito_B !important;
+}
+
+.sale_div .sale:nth-child(2) {
+    margin-bottom: 0;
+}
+
+span.sale_percentage {
+    font-family: nunito_B !important;
+    text-align: right;
+    color: #fff;
+    padding: 0.1rem .5rem;
+    min-width: 15%;
+    max-width: 100%;
+    width: 100%;
+    border-radius: .35rem;
+}
+
+.sale span:nth-child(2) {
+    display: block;
+    width: 100%;
+    font-family: nunito_I !important;
+    text-align: right;
+    color: rgba(22, 50, 92, .3);
+}
+
+.actual span.sale_percentage {
+    width: 30%;
+    background-color: #009DDC;
+}
+
+.predicted span.sale_percentage {
+    width: 100%;
+    background-color: #C7D3E5;
+}
+
+.card_style.yellow .card-details span.numbers span:nth-child(1) {
+    color: #FFBA52;
+}
+
+.card_style.yellow span.card-subtitle {
+    color: #FFBA52;
+}
+
+.time_div .box {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    border: 0.75px solid #7B8DAA;
+    border-radius: .5rem;
+    padding: 5px 10px;
+}
+
+.time_div .box:nth-child(2) {
+    margin-top: .5rem;
+}
+
+.time_div .box > span:nth-child(1) {
+    font-size: inherit;
+    font-family: nunito_SB !important;
+    color: rgba(22, 50, 92, 0.75);
+}
+
+.time_div .box > span:nth-child(2) {
+    font-size: 0.625rem;
+    font-family: nunito_SB !important;
+    color: rgba(22, 50, 92, 0.35);
+}
+
+/*Top Performer*/
+.card.performer {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    max-height: none;
+    overflow: auto;
+    box-shadow: none;
+}
+
+span.title_time > span:nth-child(1) {
+    font-size: 1.125rem;
+    color: rgba(22, 50, 92, .75);
+    letter-spacing: 1px;
+}
+
+span.title_time {
+    display: flex;
+    flex-direction: column;
+}
+
+.card.performer .card-body {
+    padding: 0.9375rem 1.25rem;
+}
+
+span.upadted-time {
+    font-family: nunito_I !important;
+    font-size: .75rem;
+}
+
+p.days-title {
+    margin: 0;
+    background-color: #F6EFFC;
+    font-size: 1rem;
+    text-align: center;
+    color: #9B51E0;
+    border-radius: .5rem;
+}
+
+.performer_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.875rem 0;
+}
+
+span.p_div {
+    display: flex;
+    align-items: center;
+}
+
+.performer_div span > img {
+    max-width: 65px;
+    margin: 0 .825rem;
+}
+
+span.performer_details p {
+    margin: 0;
+}
+
+span.p_badge > img {
+    max-width: 55px;
+}
+
+p.p_points {
+    font-size: 0.875rem;
+    font-family: nunito_B !important;
+    color: rgba(22, 50, 92, .35);
+}
+
+p.p_name {
+    font-family: nunito_I !important;
+    font-size: 1.125rem;
+    color: rgba(22, 50, 92, .75);
+}
+
+span.list-no {
+    font-size: 1rem;
+    color: rgba(22, 50, 92, .35);
+}
+
+/*Open Activities*/
+.card.performer.activities {
+    margin-top: 1.875rem;
+}
+
+.card.performer.activities .card-title {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+}
+
+.card-body.activitylist {
+    max-height: 400px;
+    overflow: auto;
+}
+
+/* The container */
+.cc_container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin: 1rem 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.cc_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -10px;
+    left: -12px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: .5px solid #ADB7C6;
+    background-color: #FFFFFF;
+    box-shadow: inset 0 0 6px 0px rgba(22, 50, 92, 0.35);
+}
+
+/* On mouse-over, add a grey background color */
+.cc_container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cc_container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.cc_container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.cc_container .checkmark:after {
+    left: 9px;
+    top: 3px;
+    width: 7px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F4F8FE;
+    border-radius: 0.625rem;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.list-item span > img {
+    max-width: 35px;
+}
+
+span.label {
+    display: none;
+    visibility: hidden;
+    font-size: 1.125rem;
+    font-family: nunito_I !important;
+    color: rgba(22, 50, 92, .75);
+}
+
+span.activity_details {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    width: 100%;
+}
+
+span.activity_name {
+    font-size: 1.125rem;
+    color: rgba(22, 50, 92, .75);
+    font-family: nunito_L !important;
+}
+
+span.activity_name .highlight {
+    font-family: nunito_SB !important;
+}
+
+span.activity_time {
+    display: flex;
+    align-items: center;
+}
+
+span.activity_time > img {
+    max-width: 15px;
+    margin-right: 4px;
+}
+
+span.time {
+    color: #7B8DAA;
+}
+
+span.actions_div {
+    display: flex;
+    align-items: center;
+}
+
+span.done {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span.close_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span.close_item button {
+    border: 0;
+    background: none;
+    margin: .25rem 0;
+}
+
+span.close_item button:hover {
+    cursor: pointer;
+}
+
+span.close_item button:focus {
+    outline: 0;
+}
+
+span.close_item button > img {
+    max-width: 20px;
+}
+
+span.actions_div > span {
+    margin: 0 10px 0 0;
+}
+
+span.for {
+    display: inline;
+    background-color: #DBE6F4;
+    width: fit-content;
+    font-size: 0.75rem;
+    border-radius: 5rem;
+    padding: 0 10px;
+    margin: 5px 0;
+    color: #506585;
+}
+
+/*Pie Chart*/
+img.pieChart {
+    max-width: 140px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.card.lead_source {
+    max-height: unset;
+    margin: 0 1em;
+}
+
+.cart_details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.details_div {
+    margin: 1.125rem 0;
+}
+
+.cart_details > span {
+    display: flex;
+    align-items: center;
+}
+
+span.color_code {
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    border-radius: .2em;
+    margin-right: .5rem;
+}
+
+span.pie_name {
+    color: rgba(22, 50, 92, .75);
+    font-family: nunito_L !important;
+}
+
+span.color_code.green {
+    background-color: #13DBB7;
+}
+
+span.color_code.yellow {
+    background-color: #FFDA6A;
+}
+
+span.color_code.blue {
+    background-color: #2F80ED;
+}
+
+span.color_code.grey {
+    background-color: #E5E5E5;
+}
+
+span.pie_percent {
+    font-size: .75rem;
+    color: #7B8DAA;
+    display: inline-block;
+    min-width: 3rem;
+    border-radius: 5rem;
+    padding: .2rem;
+    text-align: center;
+    font-family: nunito_SB !important;
+    background-color: rgba(206, 219, 238, .3);
+}
+
+.card.current_sales {
+    max-height: unset;
+    width: calc(100% - 19rem);
+    margin: 0;
+    overflow: auto;
+}
+
+.padding-right {
+    padding-right: 0 !important;
+}
+
+span.name_image img.user_avatar {
+    max-width: 35px;
+}
+
+.excecutive_div {
+    display: flex;
+    align-items: center;
+    margin: 1.05rem 0;
+}
+
+
+span.name_image {
+    display: flex;
+    align-items: center;
+}
+
+.name_image > span {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    min-width: 5rem;
+}
+
+span.user_name {
+    font-family: nunito_I !important;
+    color: rgba(22, 50, 92, .75);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+span.user_srName {
+    font-family: nunito_L !important;
+    color: rgba(22, 50, 92, .75);
+    max-width: 95%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+span.user_progress {
+    width: 70%;
+    max-width: 100%;
+    height: 35px;
+    border-radius: .55em;
+    background-color: rgba(47, 128, 237, .3);
+}
+
+span.rupess {
+    color: rgba(22, 50, 92, .75);
+    font-size: 0.75rem;
+    font-family: nunito_SB !important;
+    margin: 0 5px;
+}
+
+.card.current_sales .card-title {
+    position: sticky;
+    top: 0;
+    left: 1rem;
+    background: #fff;
+    z-index: 1;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.card.current_sales .card-body {
+    max-height: 375px;
+    min-width: 525px;
+    overflow: auto;
+    padding: 0 1.25rem;
+}
+
+.guide {
+    background: #fff;
+    padding: .5rem;
+    right: 0;
+    min-width: 525px;
+    z-index: -1;
+    padding-left: 145px;
+    border-top: 0.75px solid rgba(22, 50, 92, .3);
+}
+
+.guide > span {
+    font-size: .825rem;
+    color: rgba(22, 50, 92, .75);
+    margin: 0 1em;
+}
+
+.guide > span::before {
+    content: " ";
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    margin-left: .75rem;
+    bottom: 2.5rem;
+    z-index: 0;
+    width: 1px;
+    border-left: .9125px dashed rgba(22, 50, 92, 0.3);
+}
+
+/*Remove this CSS after implementation*/
+img.img-fluid.dummy_image {
+    margin: 1em;
+    padding-right: 20px;
+}
+
+/*-------------*/

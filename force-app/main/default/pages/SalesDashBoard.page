@@ -1,0 +1,634 @@
+<apex:page standardStylesheets="false" showHeader="false" >
+    <html lang="en">
+		<head>
+			<!-- Required meta tags -->
+			<meta charset='utf-8'/>
+			<meta name='viewport' content=' width=device-width, initial-scale=1, shrink-to-fit=no'/>
+			
+			<!--    Custom CSS -->
+				<apex:stylesheet value="{!
+					URLFOR($Resource.SalesDashboard,'SalesDashboard/css/style.css')}"/>
+				<apex:stylesheet value="{!
+					URLFOR($Resource.SalesDashboard,'SalesDashboard/css/responsive.css')}"/>
+				<apex:stylesheet value="{!
+					URLFOR($Resource.SalesDashboard,'SalesDashboard/css/stycss-circular-prog-barle.css')}"/>
+					
+			<!-- Bootstrap CSS -->
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+				<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			
+			
+			<title>Sales Dashboard</title>
+		</head>
+		<body>
+            <!-- 
+			<div id="mySidenav" class="sidenav">
+
+			<div class="nav_bar_title">
+				<span>Naviagtion</span>
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			</div>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/event.png')}" class="img-fliud nav_icons"/>Calendar</a>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/leads.png')}" class="img-fliud nav_icons"/>Leads</a>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/messages.png')}" class="img-fliud nav_icons"/>Messages</a>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/Files.png')}" class="img-fliud nav_icons"/>Files</a>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/chat.png')}" class="img-fliud nav_icons"/>Chat</a>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/mail.png')}" class="img-fliud nav_icons"/>Mails</a>
+					<a href="#"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/Contacts.png')}" class="img-fliud nav_icons"/>Contacts</a>
+			
+			</div>
+			<div id="nav_menu_bg"></div>
+    	<header class="container-fluid">
+        <button class="nav_btn" onclick="openNav()">
+            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/nav.png')}" alt="Navigation" width="20" class="img-fluid nav_icon"/>
+        </button>
+        <div class="top_head">
+            <img class="img-fluid sf_logo" src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/sf_logo.png')}" width="60" alt="Salesforce"/>
+            <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/search1.png')}" class="img-fluid" alt="Search"/><input type="search" placeholder="Search Salesforce"/></span>
+            <div class="options">
+                <span>
+                    <a class="header_options"><img class="img-fluid" src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/notification.png')}" alt="notification"/></a>
+                    <a class="header_options"><img class="img-fluid" src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/settings.png')}" alt="setting"/></a>
+                </span>
+                <span>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user_avatar.png')}" class="img-fluid user_avatar" width="60" alt="User"/> <span id="userName">May Romanoff</span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">Manage Account</a>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </header>
+			-->    
+	<section>
+        <div class="bottom_head">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3 div_1">
+                    <span class="grettigs">Hi <span id="name">{!$User.FirstName}</span></span>
+                    <div class="points_div"><span>Your Points</span><span>31500</span><span>&#47;</span><span>50000</span></div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 div_2">
+                    <div class="badge_div">
+                        <span>
+                            <p>You are proud owner of</p>
+                            <p id="badge">EXPLORER</p>
+                        </span>
+                        <span>
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/badge.png')}" alt="Badge" class="img-fluid sf_badge"/>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-4 div_3">
+                    <p>Current Progress</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>30%</span></div>
+                    </div>
+                    <div class="progress_lables">
+                        <span>Silver</span>
+                        <span style="color: #F2994A;">Gold</span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-2 div_4">
+                    <span class="button_div">
+                        <a class="btn btn-style" href="#">See Profile</a>
+                        <span class="notify"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg_blue">
+        <!--        Tiles Section-->
+        <div class="container-fluid padding">
+            <div class="dashboard-title">
+                <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/dashboard1.png')}" class="img-fulid" alt="Dashboard"/>
+                <span>DASHBOARD</span>
+            </div>
+            <div id="elem">
+                <div class="card">
+                    <div class="card-title">
+                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/card_icon(1).png')}"/><span>New Leads</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-details">
+                            <span class="leads">35</span>
+                            <span class="leads-details">
+                                <p>New Leads</p>
+                                <p class="card-date">20 May 2020</p>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button">See Details</button>
+                    </div>
+                </div>
+                <div class="card card_style green">
+                    <div class="card-title">
+                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/card_icon(2).png')}"/><span>Lead Conversion</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-details">
+                            <span class="numbers"><span>18</span><span>/35</span></span>
+                            <span class="card-subtitle">Leads Converted</span>
+                            <p class="card-date">20 May 2020</p>
+                        </div>
+                        <div class="progress-circle over50 p66">
+                            <span>66%</span>
+                            <div class="left-half-clipper">
+                                <div class="first50-bar"></div>
+                                <div class="value-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button">See Details</button>
+                    </div>
+                </div>
+                <div class="card card_style blue">
+                    <div class="card-title">
+                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/card_icon(3).png')}"/><span>Closed Opportunities</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-details">
+                            <span class="numbers"><span>49%</span></span>
+                            <span class="card-subtitle">Success Rate</span>
+                            <p class="card-date">20 May 2020</p>
+                        </div>
+                        <div class="progress-circle over50 p49">
+                            <span>49%</span>
+                            <div class="left-half-clipper">
+                                <div class="first50-bar"></div>
+                                <div class="value-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button">See Details</button>
+                    </div>
+                </div>
+
+                <div class="card card_style cyan">
+                    <div class="card-title">
+                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/card_icon(4).png')}"/><span>Product Gap</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-details">
+                            <span class="numbers"><span>25</span></span>
+                            <span class="diff_perentage"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/down.png')}" alt="Decrease"/><span class="percent">58.33%</span></span>
+                            <span class="card-subtitle">Difference</span>
+                            <p class="card-date">20 May 2020</p>
+                        </div>
+                        <div class="sale_div">
+                            <div class="sale actual">
+                                <span class="sale_percentage">30</span>
+                                <span>Actual Sale</span>
+                            </div>
+                            <div class="sale predicted">
+                                <span class="sale_percentage">60</span>
+                                <span>Prdeicted Sale</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button">See Details</button>
+                    </div>
+                </div>
+                <div class="card card_style yellow">
+                    <div class="card-title">
+                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/card_icon(5).png')}"/><span>Sales Cycle</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-details">
+                            <span class="numbers"><span>25hrs</span></span>
+                            <span class="card-subtitle">Average Time</span>
+                            <p class="card-date">20 May 2020</p>
+                        </div>
+                        <div class="time_div">
+                            <div class="box">
+                                <span class="deals_won">55</span>
+                                <span>Total Deals Won</span>
+                            </div>
+                            <div class="box">
+                                <span class="time_taken">100hrs</span>
+                                <span>Total Time Taken</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button">See Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        Tiles Section End-->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-7 col-lg-8 padding-right">
+                    <div class="card lead_source">
+                        <div class="card-title">
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/lead_by_source.png')}"/><span>Lead By Source</span>
+                        </div>
+                        <div class="card-body">
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/Pie_Chart.png')}" class="img-fluid pieChart" alt="Pie Chart"/>
+                            <div class="details_div">
+                                <div class="cart_details">
+                                    <span><span class="color_code green"> </span><span class="pie_name">Conferences</span></span><span class="pie_percent">49%</span>
+                                </div>
+                                <div class="cart_details">
+                                    <span><span class="color_code blue "> </span><span class="pie_name">Trade Show Booth</span></span><span class="pie_percent">25%</span>
+                                </div>
+                                <div class="cart_details">
+                                    <span><span class="color_code yellow"> </span><span class="pie_name">Meetings</span></span><span class="pie_percent">20%</span>
+                                </div>
+                                <div class="cart_details">
+                                    <span><span class="color_code grey"> </span><span class="pie_name">Website Demo</span></span><span class="pie_percent">6%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card current_sales">
+                        <div class="card-title">
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/current_sales.png')}"/><span>Current Sales Contest</span>
+                        </div>
+                        <div class="overflow_div">
+                            <div class="card-body">
+                                <div class="excecutive_div">
+                                    <span class="name_image">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user.png')}" class="img-fluid user_avatar" alt="May"/>
+                                        <span>
+                                            <span class="user_name">May</span>
+                                            <span class="user_srName">Romanoff</span>
+                                        </span>
+                                    </span>
+                                    <span class="user_progress"></span>
+                                    <span class="rupess">345000</span>
+                                </div>
+
+                                <div class="excecutive_div">
+                                    <span class="name_image">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-1.png')}" class="img-fluid user_avatar" alt="Harry"/>
+                                        <span>
+                                            <span class="user_name">Harry</span>
+                                            <span class="user_srName">Styles</span>
+                                        </span>
+                                    </span>
+                                    <span class="user_progress"></span>
+                                    <span class="rupess">345000</span>
+                                </div>
+
+                                <div class="excecutive_div">
+                                    <span class="name_image">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-2.png')}" class="img-fluid user_avatar" alt="King"/>
+                                        <span>
+                                            <span class="user_name">King</span>
+                                            <span class="user_srName">Aurthur</span>
+                                        </span>
+                                    </span>
+                                    <span class="user_progress"></span>
+                                    <span class="rupess">345000</span>
+                                </div>
+
+                                <div class="excecutive_div">
+                                    <span class="name_image">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-3.png')}" class="img-fluid user_avatar" alt="Jane"/>
+                                        <span>
+                                            <span class="user_name">Jane</span>
+                                            <span class="user_srName">Rachet</span>
+                                        </span>
+                                    </span>
+                                    <span class="user_progress"></span>
+                                    <span class="rupess">345000</span>
+                                </div>
+
+                                <div class="excecutive_div">
+                                    <span class="name_image">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-4.png')}" class="img-fluid user_avatar" alt="Tony"/>
+                                        <span>
+                                            <span class="user_name">Tony</span>
+                                            <span class="user_srName">Stark</span>
+                                        </span>
+                                    </span>
+                                    <span class="user_progress"></span>
+                                    <span class="rupess">345000</span>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="guide">
+                                    <span>10k</span>
+                                    <span>20k</span>
+                                    <span>30k</span>
+                                    <span>40k</span>
+                                    <span>50k</span>
+                                    <span>60k</span>
+                                    <span>70k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Just For Representation Purpose-->
+                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/SalesClosedByDate.png')}" class="img-fluid dummy_image"/>
+                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/SalesvsLeads.png')}" class="img-fluid dummy_image"/>
+                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/WinRate.png')}" class="img-fluid dummy_image"/>
+                </div>
+                <div class="col-sm-12 col-md-5 col-lg-4">
+                    <!--Top Performer-->
+                    <div class="card performer">
+                        <div class="card-title">
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/top_perfomer.png')}"/>
+                            <span class="title_time">
+                                <span>TOP PERFORMERS</span>
+                                <span class="upadted-time">Last updated 5mins ago</span>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <p class="days-title">7 Days Leaderboard</p>
+                            <div class="performer_div">
+                                <span class="p_div">
+                                    <span class="list-no">1</span>
+                                    <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user.png')}" alt="May Romanoff"/></span>
+                                    <span class="performer_details">
+                                        <p class="p_name">May Romanoff</p>
+                                        <p class="p_points">31500 pts</p>
+                                    </span>
+                                </span>
+                                <span class="p_badge">
+                                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/badge.png')}" alt="Badge"/>
+                                </span>
+                            </div>
+
+                            <div class="performer_div">
+                                <span class="p_div">
+                                    <span class="list-no">2</span>
+                                    <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-1.png')}" alt="Harry Styles"/></span>
+                                    <span class="performer_details">
+                                        <p class="p_name">Harry Styles</p>
+                                        <p class="p_points">30000 pts</p>
+                                    </span>
+                                </span>
+                                <span class="p_badge">
+                                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/badge-1.png')}" alt="Badge"/>
+                                </span>
+                            </div>
+
+                            <div class="performer_div">
+                                <span class="p_div">
+                                    <span class="list-no">3</span>
+                                    <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-2.png')}" alt="King Aurthur"/></span>
+                                    <span class="performer_details">
+                                        <p class="p_name">King Aurthur</p>
+                                        <p class="p_points">29500 pts</p>
+                                    </span>
+                                </span>
+                                <span class="p_badge">
+                                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/badge-2.png')}" alt="Badge"/>
+                                </span>
+                            </div>
+
+                            <div class="performer_div">
+                                <span class="p_div">
+                                    <span class="list-no">4</span>
+                                    <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-3.png')}" alt="Jane Rachet"/></span>
+                                    <span class="performer_details">
+                                        <p class="p_name">Jane Rachet</p>
+                                        <p class="p_points">27825 pts</p>
+                                    </span>
+                                </span>
+                                <span class="p_badge">
+                                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/badge-3.png')}" alt="Badge"/>
+                                </span>
+                            </div>
+
+                            <div class="performer_div">
+                                <span class="p_div">
+                                    <span class="list-no">5</span>
+                                    <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/img/user-4.png')}" alt="Tony Stark"/></span>
+                                    <span class="performer_details">
+                                        <p class="p_name">Tony Stark</p>
+                                        <p class="p_points">27800 pts</p>
+                                    </span>
+                                </span>
+                                <span class="p_badge">
+                                    <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/badge-4.png')}" alt="Badge"/>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Open Activities-->
+                    <div class="card performer activities">
+                        <div class="card-title">
+                            <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/open_activities.png')}"/>
+                            <span class="title_time">
+                                <span>OPEN ACTIVITIES</span>
+                                <span class="upadted-time">Last updated 15mins ago</span>
+                            </span>
+                        </div>
+                        <div class="card-body activitylist">
+                            <div class="list-item">
+                                <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/callicon-1.png')}" alt="Call"/><span class="label">Call</span></span>
+                                <span class="activity_details">
+                                    <span class="activity_name">
+                                        Call with <span class="highlight">Joy Shepper</span>
+                                    </span>
+                                    <span class="activity_time">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/clock.png')}"/><span class="time">3:00 PM</span>
+                                    </span>
+                                </span>
+                                <span class="actions_div">
+                                    <span class="done">
+                                        <label class="cc_container">
+                                            <input type="checkbox"/>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span>Done</span>
+                                    </span>
+                                    <span class="close_item">
+                                        <button><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/close.png')}" alt="close"/></button>
+                                        <span>Close</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="list-item">
+                                <span class="list-lable"><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/home.png')}" alt="Visit"/><span class="label">Visit</span></span>
+                                <span class="activity_details">
+                                    <span class="activity_name">
+                                        Visit <span class="highlight">Ragina Filangir</span>
+                                    </span>
+                                    <span class="for">INC Co-Op</span>
+                                    <span class="activity_time">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/clock.png')}"/><span class="time">6:30 PM</span>
+                                    </span>
+                                </span>
+                                <span class="actions_div">
+                                    <span class="done">
+                                        <label class="cc_container">
+                                            <input type="checkbox"/>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span>Done</span>
+                                    </span>
+                                    <span class="close_item">
+                                        <button><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/close.png')}" alt="close"/></button>
+                                        <span>Close</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="list-item">
+                                <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/callicon-1.png')}" alt="Call"/><span class="label">Call</span></span>
+                                <span class="activity_details">
+                                    <span class="activity_name">
+                                        Call with <span class="highlight">Kevin Feigie</span>
+                                    </span>
+                                    <span class="activity_time">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/clock.png')}"/><span class="time">3:45 PM</span>
+                                    </span>
+                                </span>
+                                <span class="actions_div">
+                                    <span class="done">
+                                        <label class="cc_container">
+                                            <input type="checkbox"/>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span>Done</span>
+                                    </span>
+                                    <span class="close_item">
+                                        <button><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/close.png')}" alt="close"/></button>
+                                        <span>Close</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="list-item">
+                                <span><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/demo.png')}" alt="Demo"/><span class="label">Demo</span></span>
+                                <span class="activity_details">
+                                    <span class="activity_name">
+                                        <span class="highlight">Website Demo</span>
+                                    </span>
+                                    <span class="for">For Cyclon Co-Op</span>
+                                    <span class="activity_time">
+                                        <img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/clock.png')}"/><span class="time">3:00 PM</span>
+                                    </span>
+                                </span>
+                                <span class="actions_div">
+                                    <span class="done">
+                                        <label class="cc_container">
+                                            <input type="checkbox"/>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span>Done</span>
+                                    </span>
+                                    <span class="close_item">
+                                        <button><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/close.png')}" alt="close"/></button>
+                                        <span>Close</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+			<!-- Optional JavaScript -->
+			
+			<script>
+					document.getElementById("nav_menu_bg").addEventListener("click", closeNav);
+
+					function openNav() {
+						document.getElementById("mySidenav").style.width = "250px";
+						document.getElementById("nav_menu_bg").style.display = "block";
+					}
+
+					function closeNav() {
+						document.getElementById("mySidenav").style.width = "0";
+						document.getElementById("nav_menu_bg").style.display = "none";
+					}
+
+			</script>
+
+			<script>
+					$(function() {
+						var print = function(msg) {
+							alert(msg);
+						};
+
+						var setInvisible = function(elem) {
+							elem.css('visibility', 'hidden');
+						};
+						var setVisible = function(elem) {
+							elem.css('visibility', 'visible');
+						};
+
+						var elem = $("#elem");
+						var items = elem.children();
+						// Inserting Buttons
+						elem.prepend('<div id="right-button" style="visibility: hidden;"><a><img src="{!URLFOR($Resource.SalesDashboard,'SalesDashboard/icons/previous.png')}" alt="prev" class="img-fluid"></a></div>');
+						elem.append('  <div id="left-button"><a><img src="{!URLFOR($Resource.SalesDashboard, 'SalesDashboard/icons/next.png')}" alt="next" class="img-fluid"></a></div>');
+
+						// Inserting Inner
+						items.wrapAll('<div id="inner" />');
+
+						// Inserting Outer
+						elem.find('#inner').wrap('<div id="outer"/>');
+
+						var outer = $('#outer');
+
+						var updateUI = function() {
+							var maxWidth = outer.outerWidth(true);
+							var actualWidth = 0;
+							$.each($('#inner >'), function(i, item) {
+								actualWidth += $(item).outerWidth(true);
+							});
+
+							if (actualWidth <= maxWidth) {
+								setVisible($('#left-button'));
+							}
+						};
+						updateUI();
+						$('#right-button').click(function() {
+							var leftPos = outer.scrollLeft();
+							outer.animate({
+								scrollLeft: leftPos - 230
+							}, 700, function() {
+								if ($('#outer').scrollLeft() <= 0) {
+									setInvisible($('#right-button'));
+								}
+							});
+						});
+
+						$('#left-button').click(function() {
+							setVisible($('#right-button'));
+							var leftPos = outer.scrollLeft() + 3.5;
+							outer.animate({
+								scrollLeft: leftPos + 230
+							}, 700);
+						});
+
+						$(window).resize(function() {
+							updateUI();
+						});
+					});
+
+			</script>
+
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		</body>
+	</html>
+</apex:page>
