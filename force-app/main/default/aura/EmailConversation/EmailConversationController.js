@@ -20,8 +20,8 @@
     },
     handleEventCloseModelPopup:function(component, event, helper) {
         console.log('called handleEventCloseModelPopup');
-        var overlayPanel = component.get('v.overlayPanel');
-        overlayPanel[0].close(); 
+        /*var overlayPanel = component.get('v.overlayPanel');
+        overlayPanel[0].close(); */
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
             "title": "Success!",

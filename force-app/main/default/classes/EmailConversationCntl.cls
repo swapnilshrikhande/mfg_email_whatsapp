@@ -49,7 +49,7 @@ global with sharing class EmailConversationCntl{
         System.debug('@@@@@Obejct NAme@@'+ObjectName);
         System.debug('@@@@@REcord Id@@'+RecId);
         
-        String  queryString='SELECT Id, Subject,Status,TextBody,Incoming,HtmlBody,Headers,FromName,FromAddress,ToAddress,Contact__c,MessageDate,Lead__c,Account__c FROM EmailMessage';
+        String  queryString='SELECT Id, Subject,Status,TextBody,Incoming,HtmlBody,Headers,FromName,FromAddress,ToAddress,Contact__c,MessageDate,Lead__c,Account__c FROM EmailMessage   ';
         
         if(myFilter.size()>0){
             queryString += ' WHERE ' + myFilter[0];
@@ -59,6 +59,7 @@ global with sharing class EmailConversationCntl{
             string ss = 'No Emails';
         }
         system.debug('Structured Query>>>'+queryString);
+        queryString+=' ORDER BY CreatedDate DESC ';
         List<EmailMessage> allEmailMessages= database.query(queryString);
         system.debug('>>>>>>>>>>All Records>>>'+allEmailMessages);
         return allEmailMessages;

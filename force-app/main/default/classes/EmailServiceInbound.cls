@@ -23,19 +23,17 @@ global class EmailServiceInbound implements Messaging.InboundEmailHandler {
         System.debug('sss '+ sss);
         string subrecid;
 
-        if( sss.contains('\\(') ) {
+        if( sss.contains('(') ) {
             string [] a = sss.split('\\(');
             system.debug('a0 ='+ a[0]);
             //system.debug('a1 a[1]);
 
-            if( a[1].contains('\\)') ) {
+            if( a[1].contains(')') ) {
                 string [] bb = a[1].split('\\)');
                 system.debug('bb>>>Final ID>>>> '+bb[0] );
                 subrecid = bb[0] ; 
             }
         }
-
-        
 
         //@TODO subrecid Check if the record is deleted, if yes create a new lead
         
@@ -109,6 +107,11 @@ global class EmailServiceInbound implements Messaging.InboundEmailHandler {
             emr.RelationAddress = email.FromAddress;
             emr.RelationType = 'FromAddress';
             insert emr; 
+            
+            if( leadEmailMessage.Lead__c != null ){
+                update new Lead(Id=leadEmailMessage.Lead__c,Activity_Count_Updated_On__c=null);    
+            }
+            
             system.debug('>>>>>=='+ emr );
         }
         

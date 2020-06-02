@@ -26,14 +26,17 @@ public class EmailServiceOutbound {
         List<String> sendTo = mMail.split(',');
         //Setting Senders
         mail.setToAddresses(sendTo);        
-        String addrUrl='replyemailtocontact@1xa8w2dg2mv8jwboee0zu8kf5yl5i45x4x2sy11h5871sme9vu.28-s3hgeay.ap6.apex.salesforce.com';
+        String addrUrl='sales@9-1rg0tcmq1biqv1j7nsgtnf4v02qsy6cpquita5j1g2wvq0y9ak.3h-2d6cmeas.na111.apex.salesforce.com';
         
         // Set who the email is sent from
         mail.setReplyTo(addrUrl); // change it with your mail address.
         mail.setSenderDisplayName(UserInfo.getName() ); 
         system.debug('>>>>>=='+ UserInfo.getName() );   
         // Subject from Email Component and Record ID
-        mail.setSubject(mSubject + subrec );
+        if( mSubject.contains('(') &&  mSubject.contains(')') ) {
+             mail.setSubject(mSubject);
+        }else     
+        	mail.setSubject(mSubject + subrec );
         //Setting Body from Email Component
         mail.setHtmlBody(mbody);        
         // Add your email to the master list

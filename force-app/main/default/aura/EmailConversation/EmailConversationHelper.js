@@ -76,6 +76,7 @@
             var email='';
             var subject='';
             var htmlbody ='';
+            
             if(state === "SUCCESS") {
                 var emailMsg =  response.getReturnValue();
                 component.set("v.body",cleanText);
@@ -94,18 +95,20 @@
                     console.log('called true');
                     email= emailMsg.FromAddress;
                     subject= emailMsg.Subject;
+                   
                 }
                 if(emailMsg.Incoming == false){
                     email= emailMsg.ToAddress;
                     subject= emailMsg.Subject;
+                 
                 }
                 console.log('email'+ email);
                 var modalBody ;
                 $A.createComponent("c:EmailComponent", {
                     'email':email,
                     'subject':subject,
-                    'bodytext':cleanText,
-                    'recordId':emidrply
+                   	//'bodytext': emailMsg.TextBody,
+                    'recordId':emidrply,
                 },               
                 function(content, status) {
                                        if (status === "SUCCESS") {

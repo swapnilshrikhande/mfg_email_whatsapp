@@ -9,8 +9,10 @@ public without sharing class Message {
         this.message    = message;
     }
 
-    public String fromNumber {set;get;} 
-    public String toNumber	  {set;get;} 
-    public String message	  {set;get;}
-    public Id parentRecordId   {set;get;}
+    public String fromNumber    {set;get;} 
+    public String toNumber	    {set;get;} 
+    public String message	    {set;get;}
+    public String prodCategory  {set;get;}
+    public String product       {set;get;}
+    public Id parentRecordId    {set;get;}
 }

@@ -1,12 +1,90 @@
 public without sharing class LeadService {
 
+    public static final Map<String,String> productCategoryMap = new Map<String,String>{
+        '1' => 'Glass Lined Equipment',
+        '2' => 'Filtration And Drying Equipment',
+        '3' => 'Mixing Systems',
+        '4' => 'Engineered Systems',
+        '5' => 'Other Enquiry',
+        '6' => 'Product Issue'
+    };
+
+    public static final String CATEGORY_SELECTION_MESSAGE = 
+        'Hi, Please select a product category from below list to continue:\n'
+    	+' 1. Glass Lined Equipment\n'
+        +' 2. Filtration And Drying Equipment\n'
+        +' 3. Mixing Systems\n'
+        +' 4. Engineered Systems\n'
+        +' 5. Other Enquiry\n'
+        +' 6. Product Issue\n'
+        +'Reply with the option number.';
+
+
+    public static final String PROD_SELECTION_MESSAGE = 
+        'Thanks!, Please select a product from below list to continue:\n'
+    	+' {0} \n'
+        +'Reply with the option number.';
+    
+    public static final Map<String,String> productIdMap = new Map<String,String>{
+        '7' => 'Glass Lined Reactors',
+        '8' => 'Next Generation Mixing Systems',
+        '9' => 'Agitating Nozzles',
+        '10' => 'Glass Lined Storage Tanks',
+        '11' => 'Glass Steel',
+        '12' => 'Accessories',
+        '13' => 'Mavazwag®agitated Nutsche Filters & Filter Dryers',
+        '14' => 'Funda® Centrifugal Disc Filters',
+        '15' => 'Economix® Mixing Systems',
+        '16' => 'Mavadrive® Magnetic Agitators',
+        '17' => 'Wiped Film Evaporators',
+        '18' => 'Single Fluid Heating & Cooling Systems'
+    };
+
+    public static final Map<String,String> parentCategoryMap = new Map<String,String>{
+        '7' => '1',
+        '8' => '1',
+        '9' => '1',
+        '10' => '1',
+        '11' => '1',
+        '12' => '1',
+        '13' => '2',
+        '14' => '2',
+        '15' => '3',
+        '16' => '3',
+        '17' => '4',
+        '18' => '4'
+    };
+
+    public static final Map<String,List<String>> productMap = new Map<String,List<String>>{
+        '1' => new List<String>{'7. Glass Lined Reactors\n',
+                                '8. Next Generation Mixing Systems\n',
+                                '9. Agitating Nozzles\n',
+                                '10. Glass Lined Storage Tanks\n',
+                                '11. Glass Steel\n',
+                                '12. Accessories\n'
+                            },
+        '2' => new List<String>{'13. Mavazwag®agitated Nutsche Filters & Filter Dryers\n',
+                                '14. Funda® Centrifugal Disc Filters\n'
+                            },
+        '3' => new List<String>{'15. Economix® Mixing Systems\n',
+                                '16. Mavadrive® Magnetic Agitators\n'
+                            },
+        '4' => new List<String>{'17. Wiped Film Evaporators\n',
+                                '18. Single Fluid Heating & Cooling Systems\n'}
+    };
+
     public static final String LEAD_STATUS_CONTACTED = 'Contacted';
 	
-    public static Id find(String phoneNumber){
+    public static Id find(Message incomingMessage){
+
+        String phoneNumber       = incomingMessage.fromNumber;
+        String selectedCategory  = incomingMessage.prodCategory;
+
         List<Lead> leadLst = [
             Select Id 
               From Lead
              Where Phone = :phoneNumber
+               AND IsConverted = false
              Order By CreatedDate DESC
              Limit 1
         ];
@@ -41,6 +119,8 @@ public without sharing class LeadService {
               Company='Unknown'
             , LastName=msg.fromNumber
             , Phone=msg.fromNumber
+            , Interested_In_Product_Category__c=msg.prodCategory
+            , Interested_Product__c=msg.product
         );
 
         insert leadRecord;
@@ -87,6 +167,32 @@ public without sharing class LeadService {
         }
 
         return emailCmp;
+    }
+
+    public static List<Sobject> findAll(Message incomingMessage){
+
+        String phoneNumber       = incomingMessage.fromNumber;
+
+        List<Opportunity> oppLst = [
+            Select Id 
+                 , IsClosed
+              From Opportunity 
+             Where Account.Phone = :phoneNumber
+             AND IsClosed  = false
+        ];
+
+        if( ! oppLst.isEmpty() )
+            return oppLst;
+
+        List<Lead> leadLst = [
+            Select Id 
+              From Lead
+             Where Phone = :phoneNumber
+               AND IsConverted = false
+        ];
+
+        return leadLst;
+        
     }
     
 }

@@ -5,13 +5,14 @@
    <aura:attribute name="overlayPanel" type="Aura.Component[]" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="EmailMsgs" type="EmailMessage[]" />
-    <lightning:overlayLibrary aura:id="overlayLib" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
     
-   
-    <lightning:buttonIcon iconName="utility:email" variant="border-filled" alternativeText="Send Email" iconClass="dark" name="Send Email"/>
+   	
+    <lightning:buttonIcon iconName="utility:email" variant="border-filled" alternativeText="Send Email" class="small-email-button" iconClass="dark" name="Send Email" />
+    
     <lightning:button class="sendemail" aura:id="submit" type="SendEmail" label="Send Email" onclick="{!c.sendemailmsg}"/>
-    
-    <div class="slds-scrollable_y" style="height:40rem; width:27rem;">
+    <!-- class="slds-scrollable_y" style="height:60rem;" -->
+    <div >
         <!-- Iterate over the list of contacts and display them -->
         <aura:iteration var="oneMsg" items="{!v.EmailMsgs}">
             <li>
@@ -36,7 +37,13 @@
                                     </h3>
                                     <div class="slds-no-flex">
                                         <span class="slds-icon_container slds-icon-utility-groups" title="Group email">
-                                            <lightning:icon class="icongreen" iconName="utility:arrowup"/>
+                                              <aura:if isTrue="{!oneMsg.Incoming}">
+                									<lightning:icon class="icongreen" iconName="utility:arrowdown"/>
+           										 <aura:set attribute="else">
+                   									 <lightning:icon class="icongreen" iconName="utility:arrowup"/>
+            									 </aura:set>
+        									   </aura:if>
+		
                                             <span class="slds-assistive-text">Group email</span>
                                         </span>
                                     </div>
@@ -69,6 +76,7 @@
                                 </div>
                                 <br/>                                
                                 <lightning:button name="modal" label="Reply" aura:id="{!oneMsg.Id}" value="{!oneMsg.Id}" onclick="{!c.replyEmailmsg}" />
+                                
                             </article>
                         </div>
                     </div>

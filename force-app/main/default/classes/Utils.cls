@@ -18,4 +18,17 @@ public class Utils {
         Date deliveryDate = today.addDays(nDaysFromToday);
         return deliveryDate.format();
     }
+
+    public static String join(List<String> values,String separator) {
+        List<String> valueCopy = new List<String>(values);
+        if(valueCopy.isEmpty())
+            return null;
+        String result = valueCopy[0];
+        valueCopy.remove(0);
+        while(!valueCopy.isEmpty()) {
+            result += separator + valueCopy[0];
+            valueCopy.remove(0);
+        }
+        return result;
+    }
 }

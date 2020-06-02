@@ -13,6 +13,7 @@
         
         action.setCallback(this, function(response) {
             var state = response.getState();
+
             if (state === "SUCCESS") {
                 var storeResponse = response.getReturnValue();
                 var applicationEvent = $A.get("e.c:EventCloseModelPopup");

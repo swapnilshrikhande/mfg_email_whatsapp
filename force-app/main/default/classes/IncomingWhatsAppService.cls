@@ -5,7 +5,7 @@ global class IncomingWhatsAppService {
     public static final String MESSAGE_BODY='Body';
     public static final String MESSAGE_FROM='From';
     public static final String MESSAGE_TO='To';
-    
+
     @HttpGet
     global static String doGet() {
         return 'hello world';
@@ -52,7 +52,7 @@ global class IncomingWhatsAppService {
 
     public static void setResponse( RestResponse res  , String message ){
         res.addHeader('Content-Type', 'text/plain');
-        message = Utils.sanitize(message);
+        //message = Utils.sanitize(message);
         res.responseBody = Blob.valueOf( message );
     }
     
